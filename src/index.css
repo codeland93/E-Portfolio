@@ -1,13 +1,232 @@
+/* Reset some default browser styles to ensure consistent look across browsers */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Body */
 body {
+  font-family: 'Courier New', Courier, monospace; /* Terminal font */
+  background-color: #000; /* Black background */
+  color: #00ff00; /* Neon green text */
+  line-height: 1.6;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* Header */
+header {
+  padding: 2rem;
+  border-bottom: 2px solid #00ff00; /* Neon green border */
+}
+
+header h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 2px;
+  animation: pulse 1s infinite; /* Pulse animation */
+}
+
+header p {
+  text-align: center;
+  font-size: 1.25rem;
+  color: #00ff00;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+/* Typing Effect */
+.typing-effect {
+  font-family: 'Courier New', Courier, monospace;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 2px solid #00ff00; /* Simulate cursor blinking */
+  animation: typing 3s steps(30) 1s forwards, blink 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes blink {
+  0% {
+    border-color: transparent;
+  }
+  50% {
+    border-color: #00ff00;
+  }
+  100% {
+    border-color: transparent;
+  }
+}
+
+/* Card (Project) Style */
+.card {
+  background-color: #000;
+  border: 2px solid #00ff00; /* Neon green border */
+  border-radius: 8px;
+  padding: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  border-color: #00ff80; /* Neon hover effect */
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.card img:hover {
+  opacity: 1;
+}
+
+.card h3 {
+  font-size: 1.25rem;
+  color: #00ff00;
+  margin-bottom: 1rem;
+}
+
+.card p {
+  font-size: 1rem;
+  color: #00ff00;
+  margin-bottom: 1rem;
+}
+
+/* Tech Tags inside Projects */
+.card .tech-tags {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.card .tech-tag {
+  background-color: rgba(0, 255, 0, 0.2);
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  color: #00ff00;
+}
+
+/* Alert Styling */
+.alert {
+  background-color: rgba(0, 255, 0, 0.1);
+  border: 1px solid rgba(0, 255, 0, 0.5);
+  padding: 15px;
+  border-radius: 5px;
+  font-family: 'Courier New', Courier, monospace;
+  box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.alert-content {
+  font-size: 1.1rem;
+  color: #00ff00;
+}
+
+.alert.warning {
+  background-color: rgba(255, 0, 0, 0.1);
+  border-color: rgba(255, 0, 0, 0.5);
+}
+
+.alert.warning:hover {
+  background-color: rgba(255, 0, 0, 0.2);
+}
+
+/* Footer */
+footer {
+  padding: 2rem;
+  border-top: 2px solid #00ff00; /* Neon green border */
+  text-align: center;
+  font-size: 1rem;
+  color: #00ff00;
+}
+
+/* Custom Cursor */
+.custom-cursor {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: transparent;
+  border: 2px solid #00ff00;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: difference;
+  transition: transform 0.2s;
+}
+
+.custom-cursor.hover {
+  transform: scale(1.5);
+  background-color: rgba(0, 255, 0, 0.2);
+}
+
+/* Link Styling */
+a {
+  text-decoration: none;
+  color: #00ff00;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #00ff80;
+  text-decoration: underline;
+}
+
+/* Grid and Flex Layouts */
+.flex {
+  display: flex;
+}
+
+.flex-center {
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.flex-gap {
+  gap: 1rem;
+}
+
+.grid-cols-1 {
+  grid-template-columns: repeat(1, 1fr);
+}
+
+.grid-cols-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-cols-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.gap-8 {
+  gap: 2rem;
+}
+
+/* Animation for Header */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
 }

@@ -1,38 +1,210 @@
-.App {
-  text-align: center;
+/* Reset some default browser styles to ensure consistent look across browsers */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom Styling for Retro Portfolio */
+
+/* Body */
+body {
+  font-family: 'Courier New', Courier, monospace;
+  background-color: #000000; /* Black background */
+  color: #00ff00; /* Neon green text */
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
+/* Custom cursor styling */
+.custom-cursor {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #00ff00;
+  border-radius: 50%;
+  position: fixed;
   pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: difference;
+  transition: transform 0.2s;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.custom-cursor.hover {
+  transform: scale(1.5);
+  background-color: rgba(0, 255, 0, 0.2);
+}
+
+/* Terminal-style text */
+.typing-effect {
+  font-family: 'Courier New', Courier, monospace;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 2px solid #00ff00; /* Simulate cursor blinking */
+  animation: typing 3s steps(30) 1s forwards, blink 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+@keyframes blink {
+  0% {
+    border-color: transparent;
+  }
+  50% {
+    border-color: #00ff00;
+  }
+  100% {
+    border-color: transparent;
+  }
+}
+
+/* Hover effects */
+a:hover, button:hover, .alert:hover {
+  color: #00ff00;
+  text-decoration: underline;
+}
+
+/* Header and Main Section */
+header {
+  padding: 2rem;
+  border-bottom: 2px solid #00ff00;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+  animation: pulse 1s infinite;
+}
+
+header p {
+  text-align: center;
+  font-size: 1.25rem;
+}
+
+/* Project Cards */
+.card {
+  background-color: #000000;
+  border: 2px solid #00ff00;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  padding: 1rem;
+}
+
+.card:hover {
+  border-color: #00ff80;
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.card img:hover {
+  opacity: 1;
+}
+
+.card h3 {
+  font-size: 1.25rem;
+  color: #00ff00;
+  margin-bottom: 1rem;
+}
+
+.card p {
+  color: #00ff00;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.card .tech-tags {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.card .tech-tag {
+  background-color: rgba(0, 255, 0, 0.2);
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  color: #00ff00;
+}
+
+/* Alerts */
+.alert {
+  background-color: rgba(0, 255, 0, 0.1);
+  border: 1px solid rgba(0, 255, 0, 0.5);
+  padding: 15px;
+  border-radius: 5px;
+  font-family: 'Courier New', Courier, monospace;
+  box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.alert-content {
+  font-size: 1.1rem;
+  color: #00ff00;
+}
+
+.alert.warning {
+  background-color: rgba(255, 0, 0, 0.1);
+  border-color: rgba(255, 0, 0, 0.5);
+}
+
+.alert.warning:hover {
+  background-color: rgba(255, 0, 0, 0.2);
+}
+
+/* Footer */
+footer {
+  padding: 2rem;
+  border-top: 2px solid #00ff00;
+  text-align: center;
+  font-size: 1rem;
+}
+
+/* Flexbox helpers */
+.flex {
+  display: flex;
+}
+
+.flex-center {
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+.flex-column {
+  flex-direction: column;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.flex-gap {
+  gap: 1rem;
 }
+
+/* Grid helpers */
+.grid-cols-1 {
+  grid-template-columns: repeat(1, 1fr);
+}
+
+.grid-cols-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-cols-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.gap-8 {
+  gap: 2rem;
+}
+
